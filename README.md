@@ -29,6 +29,8 @@ Crit Web can be self-hosted with Docker. You need PostgreSQL 17+.
 docker run -d \
   -e DATABASE_URL=ecto://user:pass@your-db-host/crit_prod \
   -e SECRET_KEY_BASE=$(openssl rand -base64 64 | tr -d '\n') \
+  -e SELFHOSTED=true \
+  -e ADMIN_PASSWORD=your-secure-password \
   -e PHX_HOST=localhost \
   -e PHX_SERVER=true \
   -p 4000:4000 \
@@ -67,6 +69,8 @@ export CRIT_SHARE_URL=https://reviews.yourdomain.com
 |----------|----------|---------|-------------|
 | `DATABASE_URL` | Yes | — | PostgreSQL connection URL (`ecto://USER:PASS@HOST/DB`) |
 | `SECRET_KEY_BASE` | Yes | — | Session signing key. Generate with `openssl rand -base64 64` |
+| `SELFHOSTED` | Yes | — | Set to `true` to enable self-hosted mode (dashboard, no marketing pages) |
+| `ADMIN_PASSWORD` | No | — | Password for the `/dashboard` admin panel. If unset, the dashboard is accessible without authentication |
 | `PHX_HOST` | No | `localhost` | Hostname for URL generation |
 | `PORT` | No | `4000` | HTTP listening port |
 | `FORCE_SSL` | No | `false` | Set `true` if terminating TLS at the app (not behind a reverse proxy) |

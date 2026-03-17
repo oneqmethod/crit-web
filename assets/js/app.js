@@ -152,6 +152,38 @@ if (featuresGrid) {
   observer.observe(featuresGrid)
 }
 
+// Integrations page: tab switching
+document.querySelectorAll(".integration-tab").forEach(tab => {
+  tab.addEventListener("click", () => {
+    document.querySelectorAll(".integration-tab").forEach(t => {
+      t.classList.remove("border-(--crit-accent)", "text-(--crit-accent)")
+      t.classList.add("border-transparent", "text-(--crit-fg-muted)")
+    })
+    document.querySelectorAll(".integration-panel").forEach(p => p.classList.add("hidden"))
+    tab.classList.add("border-(--crit-accent)", "text-(--crit-accent)")
+    tab.classList.remove("border-transparent", "text-(--crit-fg-muted)")
+    document.getElementById(tab.dataset.target).classList.remove("hidden")
+  })
+})
+
+// Integrations page: copy snippet buttons
+document.querySelectorAll(".copy-snippet-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const pre = document.getElementById(btn.dataset.snippet)
+    navigator.clipboard.writeText(pre.textContent).then(() => {
+      const original = btn.textContent
+      btn.textContent = "Copied!"
+      btn.style.color = "var(--crit-green)"
+      btn.style.borderColor = "var(--crit-green)"
+      setTimeout(() => {
+        btn.textContent = original
+        btn.style.color = ""
+        btn.style.borderColor = ""
+      }, 2000)
+    })
+  })
+})
+
 // Home page: install tab switcher
 document.querySelectorAll(".install-tab").forEach(tab => {
   tab.addEventListener("click", () => {

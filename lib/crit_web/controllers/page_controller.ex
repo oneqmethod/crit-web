@@ -144,23 +144,45 @@ defmodule CritWeb.PageController do
       id: "claude-code",
       name: "Claude Code",
       file_path: ".claude/commands/crit.md",
-      source: "claude-code/crit.md",
+      source: "claude-code/commands/crit.md",
       description:
         "Add the /crit slash command. It launches Crit, reads your comments, and revises the output automatically.",
-      secondary_label: "CLAUDE.md snippet (optional)",
-      secondary_file_path: "Append to your CLAUDE.md",
-      secondary_source: "claude-code/CLAUDE.md"
+      secondary_label: "Skill (recommended)",
+      secondary_file_path: ".claude/skills/crit-cli/SKILL.md",
+      secondary_source: "claude-code/skills/crit-cli/SKILL.md"
     },
     %{
       id: "cursor",
       name: "Cursor",
       file_path: ".cursor/commands/crit.md",
-      source: "cursor/crit-command.md",
+      source: "cursor/commands/crit.md",
       description:
         "Add the /crit slash command. It launches Crit, reads your comments, and revises the output automatically.",
-      secondary_label: "Cursor rule (optional)",
-      secondary_file_path: "Copy to .cursor/rules/crit.mdc",
-      secondary_source: "cursor/crit.mdc"
+      secondary_label: "Skill (recommended)",
+      secondary_file_path: ".cursor/skills/crit-cli/SKILL.md",
+      secondary_source: "cursor/skills/crit-cli/SKILL.md"
+    },
+    %{
+      id: "github-copilot",
+      name: "GitHub Copilot",
+      file_path: ".github/prompts/crit.prompt.md",
+      source: "github-copilot/commands/crit.prompt.md",
+      description:
+        "Add the /crit slash command. It launches Crit, reads your comments, and revises the output automatically.",
+      secondary_label: "Skill (recommended)",
+      secondary_file_path: ".github/skills/crit-cli/SKILL.md",
+      secondary_source: "github-copilot/skills/crit-cli/SKILL.md"
+    },
+    %{
+      id: "opencode",
+      name: "OpenCode",
+      file_path: ".opencode/agents/crit.md",
+      source: "opencode/crit.md",
+      description:
+        "Add a Crit agent. It launches Crit, reads your comments, and revises the output automatically.",
+      secondary_label: "Skill (recommended)",
+      secondary_file_path: ".opencode/skills/crit-cli/SKILL.md",
+      secondary_source: "opencode/SKILL.md"
     },
     %{
       id: "windsurf",
@@ -169,17 +191,6 @@ defmodule CritWeb.PageController do
       source: "windsurf/crit.md",
       description:
         "Add a Windsurf rule that teaches the agent to use Crit for reviewing plans and code changes."
-    },
-    %{
-      id: "github-copilot",
-      name: "GitHub Copilot",
-      file_path: ".github/prompts/crit.prompt.md",
-      source: "github-copilot/crit.prompt.md",
-      description:
-        "Add the /crit slash command. It launches Crit, reads your comments, and revises the output automatically.",
-      secondary_label: "Copilot instructions (optional)",
-      secondary_file_path: "Append to .github/copilot-instructions.md",
-      secondary_source: "github-copilot/copilot-instructions.md"
     },
     %{
       id: "aider",

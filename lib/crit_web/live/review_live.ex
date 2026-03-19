@@ -252,8 +252,16 @@ defmodule CritWeb.ReviewLive do
   defp filter_demo_comments(comments, false, _identity), do: comments
 
   defp filter_demo_comments(comments, true, identity) do
-    Enum.filter(comments, fn c ->
-      c.author_identity in ["imported", identity]
+    comments
+    |> Enum.filter(fn c -> c.author_identity in ["imported", identity] end)
+    |> Enum.map(fn c ->
+      filtered_replies =
+        case c.replies do
+          %Ecto.Association.NotLoaded{} -> %Ecto.Association.NotLoaded{}
+          replies -> Enum.filter(replies, &(&1.author_identity in ["imported", identity]))
+        end
+
+      %{c | replies: filtered_replies}
     end)
   end
 

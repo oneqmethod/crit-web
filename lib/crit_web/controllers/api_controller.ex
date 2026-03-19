@@ -122,7 +122,17 @@ defmodule CritWeb.ApiController do
     demo_token = Application.get_env(:crit, :demo_review_token)
 
     if review.token == demo_token do
-      Enum.filter(review.comments, &(&1.author_identity == "imported"))
+      review.comments
+      |> Enum.filter(&(&1.author_identity == "imported"))
+      |> Enum.map(fn c ->
+        filtered_replies =
+          case c.replies do
+            %Ecto.Association.NotLoaded{} -> %Ecto.Association.NotLoaded{}
+            replies -> Enum.filter(replies, &(&1.author_identity == "imported"))
+          end
+
+        %{c | replies: filtered_replies}
+      end)
     else
       review.comments
     end

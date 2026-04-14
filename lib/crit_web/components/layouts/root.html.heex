@@ -8,12 +8,12 @@
       name="description"
       content={
         assigns[:meta_description] ||
-          "Review AI-generated plans before implementation. Inline comments, multi-round diffs, and a structured feedback loop for any AI coding agent."
+          "Your feedback loop with the agent. Review plans and code changes with inline comments, multi-round diffs, and structured output any AI coding agent can consume."
       }
     />
     <meta
       name="keywords"
-      content="code review, AI plan review, inline comments, markdown review, AI coding agent, Claude Code, Cursor, plan-then-code"
+      content="code review, AI plan review, inline comments, markdown review, AI coding agent, Claude Code, Cursor, feedback loop, agent review"
     />
     <%= if assigns[:noindex] || Application.get_env(:crit, :selfhosted) do %>
       <meta name="robots" content="noindex, nofollow" />
@@ -24,13 +24,13 @@
     <meta property="og:site_name" content="Crit" />
     <meta
       property="og:title"
-      content={assigns[:page_title] || "Crit — Review AI plans before they become code"}
+      content={assigns[:page_title] || "Crit — Your feedback loop with the agent"}
     />
     <meta
       property="og:description"
       content={
         assigns[:meta_description] ||
-          "Review AI-generated plans before implementation. Inline comments, multi-round diffs, and a structured feedback loop for any AI coding agent."
+          "Your feedback loop with the agent. Review plans and code changes with inline comments, multi-round diffs, and structured output any AI coding agent can consume."
       }
     />
     <meta property="og:url" content={assigns[:canonical_url] || "https://crit.md"} />
@@ -41,18 +41,18 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta
       name="twitter:title"
-      content={assigns[:page_title] || "Crit — Review AI plans before they become code"}
+      content={assigns[:page_title] || "Crit — Your feedback loop with the agent"}
     />
     <meta name="twitter:image" content={assigns[:og_image] || "https://crit.md/images/og.png"} />
     <meta
       name="twitter:description"
       content={
         assigns[:meta_description] ||
-          "Review AI-generated plans before implementation. Inline comments, multi-round diffs, and a structured feedback loop for any AI coding agent."
+          "Your feedback loop with the agent. Review plans and code changes with inline comments, multi-round diffs, and structured output any AI coding agent can consume."
       }
     />
 
-    <.live_title default="Crit — Review AI plans before they become code">
+    <.live_title default="Crit — Your feedback loop with the agent">
       {assigns[:page_title]}
     </.live_title>
     {raw(
@@ -90,7 +90,7 @@
               Crit
             </a>
             <p class="text-xs text-[var(--crit-fg-muted)] leading-relaxed max-w-[280px]">
-              Review AI plans before they become code. Local-first, no login required.
+              Your feedback loop with the agent.
             </p>
           </div>
           <div class="flex flex-wrap items-center gap-x-3 gap-y-2 text-xs pt-0.5">

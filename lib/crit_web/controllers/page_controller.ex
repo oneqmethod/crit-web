@@ -192,9 +192,9 @@ defmodule CritWeb.PageController do
         testimonials: @testimonials,
         stats: Crit.Statistics.totals(),
         canonical_url: canonical_url(conn),
-        page_title: "Crit - Inline code review for AI coding agents",
+        page_title: "Crit - Your feedback loop with the agent",
         meta_description:
-          "Review AI-generated plans before coding. Review code changes before merging. Inline comments, multi-round diffs, and a structured feedback loop for any AI coding agent. Single binary, works locally.",
+          "Your feedback loop with the agent. Review plans and code changes with inline comments, multi-round diffs, and structured output any AI coding agent can consume. Single binary, works locally.",
         json_ld: %{
           "@context" => "https://schema.org",
           "@type" => "SoftwareApplication",
@@ -202,7 +202,7 @@ defmodule CritWeb.PageController do
           "applicationCategory" => "DeveloperApplication",
           "operatingSystem" => "macOS, Linux, Windows",
           "description" =>
-            "Review AI-generated plans before coding. Inline comments, multi-round diffs, and a structured feedback loop for any AI coding agent.",
+            "Your feedback loop with the agent. Review plans and code changes with inline comments, multi-round diffs, and structured output for any AI coding agent.",
           "url" => "https://crit.md",
           "offers" => %{
             "@type" => "Offer",
@@ -221,7 +221,7 @@ defmodule CritWeb.PageController do
       canonical_url: canonical_url(conn),
       page_title: "Features - Crit",
       meta_description:
-        "Inline comments, multi-round diffs, git diff viewer, vim keybindings, shared reviews, syntax highlighting, and more. Built for reviewing AI agent output at every stage."
+        "Inline comments, multi-round diffs, git diff viewer, vim keybindings, shared reviews, syntax highlighting, and more. Built for the feedback loop between you and your agent."
     )
   end
 

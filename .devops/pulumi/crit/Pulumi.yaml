@@ -1,0 +1,3 @@
+name: crit
+runtime: nodejs
+description: crit-web on Hetzner Cloud, fronted by Cloudflare proxy + Origin Certificate. Single-node Docker Swarm with Traefik.

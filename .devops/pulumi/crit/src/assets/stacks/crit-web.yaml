@@ -1,0 +1,50 @@
+services:
+  app:
+    image: ghcr.io/tomasz-tomczyk/crit-web:main
+    env_file: /opt/crit/envs/crit-web.env
+    networks:
+      - traefik
+    depends_on:
+      - db
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://localhost:4000/health || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.crit.rule=Host(`crit.brainshop.app`)"
+      - "traefik.http.routers.crit.entrypoints=websecure"
+      - "traefik.http.routers.crit.tls=true"
+      - "traefik.http.services.crit.loadbalancer.server.port=4000"
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: any
+      update_config:
+        order: start-first
+
+  db:
+    image: postgres:17
+    env_file: /opt/crit/envs/postgres.env
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - traefik
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: any
+
+volumes:
+  pgdata:
+
+networks:
+  traefik:
+    external: true

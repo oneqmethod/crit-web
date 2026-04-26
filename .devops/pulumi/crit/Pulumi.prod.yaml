@@ -1,0 +1,22 @@
+config:
+  crit:serverName: crit-prod
+  crit:serverType: cx23
+  crit:location: nbg1
+  crit:image: ubuntu-24.04
+  crit:domain: brainshop.app
+  crit:appSubdomain: crit
+  crit:traefikSubdomain: traefik
+  crit:accessAllowedEmails:
+    - alon@ronin.co.il
+  crit:cloudflareAccountId: b7242faf7f6f9f727b3398f93a4ccc6f
+  crit:cloudflareZoneId: 9d515b4af5ec448bf571167680be3420
+  crit:secretKeyBase:
+    secure: AAABAKNAN9N9Is1E7hW9dRfr29/+x+VN+vaLHfVOrnoFu5xiqamDz04gM///9Zq5KWpvS4FuUT15/cNExhkaDE/0McRAEKE/D1c7eQ1rI4N6zZ3vHHDVF66eguGvSq+5USTygoEugP+xq9q3pqCe+MM2UmUfWeiC
+  crit:postgresPassword:
+    secure: AAABAMxA2vpJGltc/AckEg4Xvws7lbQ5pZlGto7sXVJx8M169lcd2vVr70NaTqZA7sw1W6FAnFXs3jFZgBbCcg==
+  crit:cloudflareOriginCaKey:
+    secure: AAABAL1fimhk/jdfDxTds//gJBO+cOcsazjRkBB6JcDOdyEnqe32EF3HI7nq+zNC/Csn91x6KDXKpaL0fOJX9XJuXc9h+9hFKX9A2XC/XEpcIuO9C42dAxnk9BltPUbsyYGk5raVePGYjwngGqEa9A2a7+4LszEvXNI2hURxnr8TzxwPFWh6nWsQB2HxNrHnLsYOiXrWf/ULSNcCDO/v2HQaRQcpFJQEsZPhn5zIpsphFRAU9r1ce07/dWDu69jJfpTYksLZWSfKYQ==
+  crit:cloudflareApiToken:
+    secure: AAABANaWnRnJAHuVAXUrLElXi/N1juENBON4NCLXkaUAJh6KKViT9B9vDJVcMoTIcMcEznVYYrI8fCXF1qP2IrmpdoNwBQQ9mu0eJB5gW97H21Mz/w==
+  crit:adminPassword:
+    secure: AAABAPX25ReRLj+pKZA17K43czodkEaamIOcErTFn58hwq+1/E9qSNLoDTODwAwZSNOvcaGqfgOzj1FH
